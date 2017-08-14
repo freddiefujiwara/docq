@@ -6,15 +6,18 @@ import {JSDOM} from 'jsdom';
 export default class Docq {
   /**
    * @constructor
-   * @param {query} query like document.querySelector
+   * @param {string} html target html string
+   * @param {string} query like document.querySelector
    */
-  constructor(query, html = '') {
+  constructor(html = '' , query = '') {
+    this.dom = new JSDOM(html);
     this.query = query;
-    this.html = html;
   }
   /**
    * run this.source
+   * @return {string} output
    */
   run() {
+    return this.dom.window.document.querySelector(this.query).outerHTML;
   }
 }

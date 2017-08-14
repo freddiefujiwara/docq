@@ -6,6 +6,11 @@ if (process.argv.length !== 3) {
   process.exit(0);
 }
 
-var Docq = require('./lib/docq');
-var dq = new Docq(process.argv[2]);
-dq.run();
+var getStream = require('get-stream');
+var stream = process.stdin;
+
+getStream(stream).then(html => {
+    var Docq = require('./lib/docq');
+    var dq = new Docq(html,process.argv[2]);
+    console.log(dq.run());
+});

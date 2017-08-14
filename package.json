@@ -55,6 +55,7 @@
         "rimraf": "^2.6.1"
     },
     "dependencies": {
+        "get-stream": "^3.0.0",
         "jsdoc": "^3.5.4",
         "jsdom": "^11.1.0",
         "semver": "^5.4.1"
