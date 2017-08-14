@@ -1,6 +1,6 @@
 {
     "name": "docq",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Parsing HTML at the command line",
     "scripts": {
         "clean": "rimraf lib",
@@ -55,6 +55,7 @@
         "rimraf": "^2.6.1"
     },
     "dependencies": {
+        "commander": "^2.11.0",
         "get-stream": "^3.0.0",
         "jsdoc": "^3.5.4",
         "jsdom": "^11.1.0",
