@@ -20,19 +20,24 @@ npm i -g docq
 
 ## Usage
 ```bash
-wget -O - http://www.google.co.jp/ | docq 'input[name="biw"]'                                        
---2017-08-14 16:27:19--  http://www.google.co.jp/                                                                              
-Resolving www.google.co.jp (www.google.co.jp)... 172.217.25.227, 2404:6800:4004:81b::2003                                      
-Connecting to www.google.co.jp (www.google.co.jp)|172.217.25.227|:80... connected.                                             
-HTTP request sent, awaiting response... 200 OK                                                                                 
-Length: unspecified [text/html]                                                                                                
-Saving to: ‘STDOUT’                                                                                                            
+                                                                                                          
                                                                                                                                
--                                   [ <=>                                                   ]  10.36K  --.-KB/s    in 0s       
+  Usage: docq [options] <query> [file.html]                                                                                    
                                                                                                                                
-2017-08-14 16:27:19 (196 MB/s) - written to stdout [10613]                                                                     
+  Parsing HTML at the command line                                                                                             
                                                                                                                                
-<input name="biw" type="hidden">         
+                                                                                                                               
+  Options:                                                                                                                     
+                                                                                                                               
+    -V, --version     output the version number                                                                                
+    -t --type <type>  Output type: (inner|outer|text|value)                                                                    
+    -h, --help        output usage information  
+```
+
+## Example
+```bash
+$  wget -q -O - http://www.google.co.jp/ | docq 'input[name="biw"]'                                               
+<input name="biw" type="hidden">    
 ```
 
 ## FAQ
