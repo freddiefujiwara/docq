@@ -9,7 +9,7 @@ export default class Docq {
    * @param {string} html target html string
    * @param {string} query like document.querySelector
    */
-  constructor(html = '' , query = '') {
+  constructor(html = '', query = '') {
     this.dom = new JSDOM(html);
     this.query = query;
   }
