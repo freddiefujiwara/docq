@@ -20,8 +20,19 @@ npm i -g docq
 
 ## Usage
 ```bash
-wget -O - https://www.google.com/ | docq '#lst-ib'
-<input class="gsfi" id="lst-ib" maxlength="2048" name="q" autocomplete="off" title="Search" type="text" value="" aria-label="Say &quot;Ok Google&quot;" aria-haspopup="false" role="combobox" aria-autocomplete="both" dir="ltr" spellcheck="false" style="border: none; padding: 0px; margin: 0px; height: auto; width: 100%; background: url(&quot;data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw%3D%3D&quot;) transparent; position: absolute; z-index: 6; left: 0px; outline: none;">
+wget -O - http://www.google.co.jp/ | ./index.js 'input[name="biw"]'                                        
+--2017-08-14 16:27:19--  http://www.google.co.jp/                                                                              
+Resolving www.google.co.jp (www.google.co.jp)... 172.217.25.227, 2404:6800:4004:81b::2003                                      
+Connecting to www.google.co.jp (www.google.co.jp)|172.217.25.227|:80... connected.                                             
+HTTP request sent, awaiting response... 200 OK                                                                                 
+Length: unspecified [text/html]                                                                                                
+Saving to: ‘STDOUT’                                                                                                            
+                                                                                                                               
+-                                   [ <=>                                                   ]  10.36K  --.-KB/s    in 0s       
+                                                                                                                               
+2017-08-14 16:27:19 (196 MB/s) - written to stdout [10613]                                                                     
+                                                                                                                               
+<input name="biw" type="hidden">         
 ```
 
 ## FAQ
