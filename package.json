@@ -1,0 +1,65 @@
+{
+    "name": "docq",
+    "version": "0.0.1",
+    "description": "Parsing HTML at the command line",
+    "scripts": {
+        "clean": "rimraf lib",
+        "test": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register --require babel-polyfill --recursive",
+        "test:watch": "npm test -- --watch",
+        "lint": "eslint -c google src test",
+        "build": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+        "codecov": "mkdir -p .nyc_output && nyc report --reporter=text-lcov > coverage.lcov && codecov -t a5416a4d-e471-4793-b7a1-6231a4ee1e5e",
+        "coverage": "mkdir -p .nyc_output && nyc --reporter=lcov --reporter=text npm run test",
+        "prepublishOnly": "npm i && npm run clean && npm run lint && npm run coverage && npm run codecov && npm run build",
+        "requirements-check": "node check-version.js",
+        "postinstall": "npm run requirements-check"
+    },
+    "bin": {
+        "docq": "index.js"
+    },
+    "main": "lib/docq.js",
+    "files": [
+        "lib",
+        "index.js",
+        "check-version.js"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/freddiefujiwara/docq.git"
+    },
+    "keywords": [
+        "cli",
+        "html",
+        "parser"
+    ],
+    "author": "Fumikazu Fujiwara <npm@ze.gs> (http://freddiefujiwara.com)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/freddiefujiwara/docq/issues"
+    },
+    "homepage": "https://github.com/freddiefujiwara/docq#readme",
+    "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.2.3",
+        "babel-plugin-add-module-exports": "^0.2.1",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-register": "^6.24.1",
+        "chai": "^4.0.2",
+        "codecov": "^2.2.0",
+        "cross-env": "^5.0.1",
+        "eslint": "^4.1.1",
+        "eslint-config-google": "^0.9.1",
+        "mocha": "^3.4.2",
+        "nyc": "^11.1.0",
+        "rimraf": "^2.6.1"
+    },
+    "dependencies": {
+        "jsdoc": "^3.5.4",
+        "jsdom": "^11.1.0",
+        "semver": "^5.4.1"
+    },
+    "engines": {
+        "node": ">=7.6"
+    }
+}
